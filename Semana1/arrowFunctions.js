@@ -17,14 +17,12 @@ paises.push('USA')
 // map es iterar de 0 a length
 paises.map(pais => {
     // console.log(pais);
-
 })
-
 
 // la funcionalidad de las funciones flecha
 // linea 26 y 27 son exactamente lo mismo
 paises.map(pais => { return console.log(pais.length) } )
-paises.map(pais => console.log(pais.length) )
+paises.map(pais => console.log(pais.length))
 
 // for (let i = 0; i < array.length; i++) {
 //     const element = array[i];
