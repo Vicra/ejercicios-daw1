@@ -11,9 +11,7 @@ console.log('suma',suma(1,2))
 // console.log(suma2(3,4))
 
 // ejemplo 2 funcion flecha - funcion anonima
-async () => {
-    console.log('funciona anonima')
-}
+
 let paises = ['Honduras', 'El Salvador', 'Cr']
 paises.push('USA')
 
