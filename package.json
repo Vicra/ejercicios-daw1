@@ -1,0 +1,26 @@
+{
+  "name": "ejerciciosdaw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon Semana2/holaServer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vicra/ejercicios-daw1.git"
+  },
+  "author": "Henry Cavil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Vicra/ejercicios-daw1/issues"
+  },
+  "homepage": "https://github.com/Vicra/ejercicios-daw1#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
