@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon Semana2/App.js"
+    "dev": "nodemon Semana3/App.js"
   },
   "repository": {
     "type": "git",
