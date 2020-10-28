@@ -2,24 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json({ extended: true }));
+const aplicanteController = require('./controllers/aplicanteController')
 
-let aplicantes = [
-    {
-        id: 1,
-        nombre:"Luis"
-        ,correo:"lufera25@hotamail.com"
-        ,edad:31
-    },
-    {
-        id: 2,
-        nombre:"German"
-        ,correo:"german@hotamail.com"
-        ,edad:63
+app.get('/', aplicanteController.getAplicantes)
 
-    }
-]
-app.get('/', function (req, res) {
-    res.send(aplicantes);
+app.get('/getWithFilter', function (req, res) {
+    res.send(aplicantes.filter(aplicante=> aplicante.borrado==false));
 })
 
 // params NOTA: solo usarlo cuando es solamente 1 parametro
@@ -50,7 +38,9 @@ app.get('/aplicante', function (req, res) {
 })
 
 app.post('/',(req,res)=>{
-    aplicantes.push(req.body);
+    let nuevoAplicante = req.body;
+    nuevoAplicante.borrado = false;
+    aplicantes.push(nuevoAplicante);
     console.log(aplicantes);
 
     res.sendStatus(200);
@@ -68,6 +58,17 @@ app.put('/',(req,res)=>{
     });
     console.log(aplicantes);
     res.sendStatus(200);
-
 })
+
+app.delete('/:id',(req,res)=>{
+    aplicantes.forEach(element => {
+
+        if (element.id == req.params.id ){
+            element.borrado = true ;
+        }
+    });
+    console.log(aplicantes);
+    res.sendStatus(200);
+})
+
 app.listen(3000);
