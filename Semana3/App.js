@@ -4,7 +4,9 @@ const app = express();
 app.use(bodyParser.json({ extended: true }));
 const aplicanteController = require('./controllers/aplicanteController')
 
-app.get('/', aplicanteController.getAplicantes)
+app.get('/', (req, res) => { 
+    res.send(aplicanteController.getAplicantes()) 
+})
 
 app.get('/getWithFilter', function (req, res) {
     res.send(aplicantes.filter(aplicante=> aplicante.borrado==false));
