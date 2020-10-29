@@ -29,47 +29,23 @@ app.get('/aplicante/:id', function (req, res) {
 
 // query params NOTA: usarlo para cuando sean mas de un parametro
 app.get('/aplicante', function (req, res) {
-    let applicantId = req.query.id;
-    let aplicanteAdevolver = {};
-    aplicantes.map((aplicante)=>{
-        if(aplicante.id == applicantId){
-            aplicanteAdevolver = aplicante
-        }
-    })
-    res.send(aplicanteAdevolver)
+    
+    res.send(aplicanteController.getAplicanteById(req.query.id))
 })
 
 app.post('/',(req,res)=>{
-    let nuevoAplicante = req.body;
-    nuevoAplicante.borrado = false;
-    aplicantes.push(nuevoAplicante);
-    console.log(aplicantes);
-
+    aplicanteController.crearAplicante(req.body);
     res.sendStatus(200);
 
 })
 
 app.put('/',(req,res)=>{
-    aplicantes.forEach(element => {
-
-        if (element.id == req.body.id ){
-            element.nombre = req.body.nombre ;
-            element.correo = req.body.correo ;
-            element.edad = req.body.edad ;
-        }
-    });
-    console.log(aplicantes);
+   aplicanteController.modificarAplicante(req.body)
     res.sendStatus(200);
 })
 
 app.delete('/:id',(req,res)=>{
-    aplicantes.forEach(element => {
-
-        if (element.id == req.params.id ){
-            element.borrado = true ;
-        }
-    });
-    console.log(aplicantes);
+   aplicanteController.eliminarAplicante(req.params.id)
     res.sendStatus(200);
 })
 

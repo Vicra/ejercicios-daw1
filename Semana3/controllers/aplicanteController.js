@@ -28,6 +28,48 @@ class AplicanteController {
         return aplicantesAretornar;
     }
 
+    getAplicanteById(id ){
+        
+        let aplicanteAdevolver = {};
+        this.aplicantes.map((aplicante)=>{
+            if(aplicante.id == id){
+                aplicanteAdevolver = aplicante
+            }
+        })
+        return aplicanteAdevolver;
+    }
+
+    crearAplicante(newAplicante){
+        
+        newAplicante.borrado = false;
+        this.aplicantes.push(newAplicante);
+        console.log(this.aplicantes);
+        
+        return true;
+    }
+
+    modificarAplicante(aplicante){
+        
+        this.aplicantes.forEach(element => {
+            if (element.id == aplicante.id ){
+                element.nombre = aplicante.nombre ;
+                element.correo = aplicante.correo ;
+                element.edad = aplicante.edad ;
+            }
+        });
+        console.log(this.aplicantes);
+    }
+
+    eliminarAplicante(id){
+        this.aplicantes.forEach(element => {
+
+            if (element.id == id ){
+                element.borrado = true ;
+            }
+        });
+        console.log(this.aplicantes);
+    }
 }
+
 
 module.exports = new AplicanteController();
