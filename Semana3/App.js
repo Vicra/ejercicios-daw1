@@ -45,7 +45,7 @@ app.put('/',(req,res)=>{
 })
 
 app.delete('/:id',(req,res)=>{
-   aplicanteController.eliminarAplicante(req.params.id)
+    aplicanteController.eliminarAplicante(req.params.id)
     res.sendStatus(200);
 })
 

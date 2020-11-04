@@ -1,5 +1,7 @@
 class AplicanteController {
-    constructor() {
+    constructor() { // i = 0 ... length-1 (1)
+        // borrar (2)
+        // i = 1
         this.aplicantes = [
             {
                 id: 1
@@ -67,6 +69,19 @@ class AplicanteController {
                 element.borrado = true ;
             }
         });
+        console.log(this.aplicantes);
+    }
+
+    borrarAplicante(id){
+        let indice = -1;
+        for (let i = 0; i < this.aplicantes.length; i++) {
+            if (this.aplicantes[i].id == id){
+                indice = i;
+            }
+        }
+        // .splice(indice, elementosABorrar)
+        // .splice(2, 1)
+        this.aplicantes.splice(indice, 1);
         console.log(this.aplicantes);
     }
 }

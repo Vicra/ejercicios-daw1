@@ -6,6 +6,13 @@ class AplicanteService {
             `SELECT * FROM aplicantes`;
         return await dbManager.execute('aplicantes', selectSQl);
     }
+
+    async getAplicanteById(id) {
+        const selectSQl =
+            `SELECT * FROM aplicantes WHERE id = ${id}`;
+        return await dbManager.execute('aplicantes', selectSQl);
+    }
+    
 }
 
 
