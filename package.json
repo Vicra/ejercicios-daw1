@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon Semana5/App.js",
-    "start": "node Semana5/App.js"
+    "dev": "nodemon Semana6/App.js",
+    "start": "node Semana6/App.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "express": "^4.17.1",
     "express-basic-auth": "^1.2.0",
     "fs": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
     "promise-mysql": "^4.1.3"
   }
 }
