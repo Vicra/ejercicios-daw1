@@ -3,7 +3,7 @@ const dbManager = new (require('../db/dbmanager'));
 class AplicanteService {
     async getAplicantes() {
         const selectSQl =
-            `SELECT * FROM aplicantes`;
+            `SELECT * FROM clientes`;
         return await dbManager.execute('aplicantes', selectSQl);
     }
 

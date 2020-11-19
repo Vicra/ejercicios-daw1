@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon Semana6/App.js",
+    "dev": "nodemon baseProyecto/index.js",
     "start": "node Semana6/App.js"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Vicra/ejercicios-daw1.git"
