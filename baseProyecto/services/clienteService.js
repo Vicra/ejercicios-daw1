@@ -1,9 +1,12 @@
 const dbManager = new (require('../db/dbmanager'));
 
 class ClienteService {
-    async getClientes() {
+    async getClientes(offset,limit) {
         const selectSQl =
-            `SELECT * FROM clientes`;
+            `SELECT * FROM clientes
+            LIMIT ${limit} OFFSET ${offset}`;
+
+
         return await dbManager.execute('proyecto', selectSQl);
     }
 

@@ -8,7 +8,11 @@ class ClienteController {
             , data: {}
             , success: true
         }
-        let clientes = await clienteService.getClientes(); // de asinc -> sinc
+        
+        let offset = req.query.offset
+        let limit = req.query.limit
+
+        let clientes = await clienteService.getClientes(offset,limit); // de asinc -> sinc
         response.data = clientes;
         res.status(response.statusCode).send(response);
     }
