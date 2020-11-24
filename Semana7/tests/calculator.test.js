@@ -19,4 +19,3 @@ test('sum two negative value(4567, 4565) -> 9132', () => {
 test('multiply two integer(2,3) -> 6', () => {
     expect(calculator.multiply(2,3)).toBe(6)
 });
-
