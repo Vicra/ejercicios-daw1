@@ -15,6 +15,20 @@ class ClienteService {
             `SELECT * FROM clientes WHERE id = ${id}`;
         return await dbManager.execute('proyecto', selectSQl);
     }
+
+    async createCliente(cliente){
+        const selectSQl =
+            `INSERT INTO clientes
+            (nombre, edad, email)
+            VALUES
+            (
+            '${cliente.nombre}', 
+            ${cliente.edad} , 
+            '${cliente.email}'
+            ) `
+        console.log(selectSQl);
+        return await dbManager.execute('proyecto', selectSQl);
+    }
     
 }
 

@@ -6,5 +6,6 @@ const clienteController = require('./controllers/clienteController')
 
 app.get('/clientes', clienteController.getClientes)
 app.get('/cliente/:id', clienteController.getClienteById) // req.params.id
+app.post('/cliente', clienteController.createCliente)
 
 app.listen(3000);
