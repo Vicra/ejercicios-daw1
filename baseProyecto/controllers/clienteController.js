@@ -2,31 +2,46 @@ const clienteService = require('../services/clienteService')
 const validator = require('../sys/validator')
 
 class ClienteController {
-    async getClientes(req, res) {
+    async getClientes(plimit, poffset) {
         let response = {
-            statusCode : 200
-            , message: 'OK'
-            , data: {}
-            , success: true
+            message: [],
+            success: true,
+            data: {}
         }
-        
+
         let offset = 0
         let limit = 100
 
-        if(req.query.offset && Number.isInteger(req.query.offset)){
-            offset = req.query.offset
+        if(poffset){
+            if (Number.isInteger(poffset)){
+                offset = poffset
+            }
+            else{
+                // poffset = potaxio
+                response.message.push('Parametro offset tiene que ser entero')
+                response.success = false
+            }
         }
 
-        if(req.query.limit && Number.isInteger(req.query.limit)){
-            limit = req.query.limit
+        if(plimit){
+            if (Number.isInteger(plimit)){
+                limit = plimit
+            }
+            else{
+                // plimit = potaxio
+                response.message.push('Parametro limit tiene que ser entero')
+                response.success = false
+            }
         }
-      
-        
 
-
-        let clientes = await clienteService.getClientes(offset,limit); // de asinc -> sinc
-        response.data = clientes;
-        res.status(response.statusCode).send(response);
+        if(response.message.length){
+            return response;
+        }
+        else {
+            let clientes = await clienteService.getClientes(offset,limit); // de asinc -> sinc
+            response.data = clientes
+            return response;
+        }
     }
 
     async getClienteById(req, res) {

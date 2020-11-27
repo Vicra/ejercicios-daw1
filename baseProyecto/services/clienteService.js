@@ -5,8 +5,6 @@ class ClienteService {
         const selectSQl =
             `SELECT * FROM clientes
             LIMIT ${limit} OFFSET ${offset}`;
-
-
         return await dbManager.execute('proyecto', selectSQl);
     }
 
@@ -22,8 +20,8 @@ class ClienteService {
             (nombre, edad, email)
             VALUES
             (
-            '${cliente.nombre}', 
-            ${cliente.edad} , 
+            '${cliente.nombre}',
+            ${cliente.edad},
             '${cliente.email}'
             ) `
         console.log(selectSQl);
