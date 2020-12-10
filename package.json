@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon Semana8/captcha/index.js",
+    "dev": "nodemon Semana6/App.js",
     "start": "node Semana6/App.js",
     "test": "jest"
   },

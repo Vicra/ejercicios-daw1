@@ -37,6 +37,41 @@ class AplicanteController {
         return response;
     }
 
+    crearAplicante(aplicante){
+        let response = {
+            statusCode: 201
+            , message: 'Created'
+            , data: []
+            , success: true
+        }
+        // 
+        try {
+            let errorMessage = [];
+            if (!aplicante.name){
+                errorMessage.push('Parametro name es requerido')
+            }
+
+            // manejar 400
+            if (errorMessage.length){
+                response.statusCode = 400;
+                response.message = errorMessage;
+                response.success = false
+                return response
+            }
+            else{
+                this.aplicantes.push(aplicante)
+                return response;
+            }
+        }
+        catch (e) {
+            // manejando el error 500
+            response.statusCode = 500;
+            response.message = e;
+            response.success = false
+            return response;
+        }
+    }
+
     getAplicantes() {
         let response = {
             statusCode: 200

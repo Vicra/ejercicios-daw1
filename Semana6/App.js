@@ -60,4 +60,9 @@ app.get('/aplicante/:id', (req, res) => {
     res.send(controllerResponse)
 })
 
+// * = ALL
+app.get('*', (req, res) => {
+    res.status(404).send('Pagina No Encontrada')
+})
+
 app.listen(3000);
