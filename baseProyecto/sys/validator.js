@@ -24,6 +24,9 @@ class Validator {
     isNumber(input){
         return Number.isInteger(input);
     }
+    isPassword(){
+        return true
+    }
 }
 
 module.exports = new Validator();
